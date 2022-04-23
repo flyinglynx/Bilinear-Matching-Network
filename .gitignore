@@ -1,0 +1,20 @@
+# output dir
+checkpoints
+
+# compilation and distribution
+__pycache__
+_ext
+*.pyc
+*.so
+build/
+dist/
+wheels/
+
+# pytorch/python/numpy formats
+*.pth
+*.pkl
+*.npy
+*.pt
+
+# Pycharm editor settings
+.idea

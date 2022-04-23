@@ -53,7 +53,7 @@ Please first modify `DIR_OF_FSC147_DATASET` and `DIR_FOR_YOUR_CHECKPOINTS` in `c
 Run the following command to train BMNet+:
 
 ````
-	cd CODE_DIRECTORY
+    cd CODE_DIRECTORY
     python train.py --cfg 'config/bmnet+_fsc147.yaml'
 ````
 - Training BMNet+ requires less than 12GB memory on a single RTX 3090. The training takes about 1 day.

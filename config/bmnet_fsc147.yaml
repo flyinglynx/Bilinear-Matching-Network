@@ -1,0 +1,54 @@
+DIR: 
+  dataset: "DIR_OF_FSC147_DATASET"
+  exp: "bmnet_ep3_dec256_lrb1e-5_lr1e-5_seed42"
+  snapshot: "DIR_FOR_YOUR_CHECKPOINTS"
+
+DATASET:
+  name: "FSC147"
+  list_train: "DIR_OF_FSC147_DATASET/train.txt"
+  list_val: "DIR_OF_FSC147_DATASET/val.txt"
+  list_test: "DIR_OF_FSC147_DATASET/test.txt"
+  exemplar_number: 3
+  downsampling_rate: 1
+
+MODEL:
+  backbone: "resnet50"
+  fix_bn: True
+  epf_extractor: "direct_pooling"
+  ep_scale_embedding: False
+  ep_scale_number: 20
+  refiner: "none"
+  matcher: "bilinear_similarity_matcher"
+  counter: "density_x16"
+  backbone_layer: "layer3"
+  hidden_dim: 256
+  refiner_layers: 1
+  matcher_layers: 1
+  matcher_proj_dim: 256
+  counter_dim: 257
+  repeat_times: 1
+  pretrain: True
+
+TRAIN:
+  resume: "model_ckpt.pth"
+  counting_loss: "l2loss"
+  contrast_loss: "none"
+  contrast_weight: 5e-6
+  optimizer: "AdamW"
+  device: "cuda:3"
+  batch_size: 8
+  epochs: 300
+  lr_backbone: 1e-5
+  lr: 1e-5
+  lr_drop: 300
+  momentum: 0.95
+  weight_decay: 5e-4
+  clip_max_norm: 0.1
+  num_workers: 1
+  seed: 42
+
+VAL:
+  resume: "model_best.pth"
+  evaluate_only: False
+  visualization: False
+

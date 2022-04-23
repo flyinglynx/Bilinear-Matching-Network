@@ -1,0 +1,59 @@
+DIR: 
+  dataset: "DIR_OF_FSC147_DATASET" # Remeber to download and place the generated txt file for dataset splitation! 
+  exp: "bmnet+_pretrained" # If you unzip the provided checkpoints, the name of the folder containing pth file will be "bmnet+_pretrained".
+                           # If you modify the folder name, set exp to the new folder name. If you want to test a trained model with our
+                           # training code, set the corresponding exp name and snapshot directory. Model configuration shall be kept the same.
+  snapshot: "./checkpoints" # The directory containing all the training logs and models. Must be an existing directory. 
+
+DATASET:
+  name: "FSC147"
+  list_train: "DIR_OF_FSC147_DATASET/train.txt" 
+  list_val: "DIR_OF_FSC147_DATASET/val.txt"
+  list_test: "DIR_OF_FSC147_DATASET/test.txt" # If you want to evaluate model on validation set, modify "test.txt" to "val.txt".
+  exemplar_number: 3
+  downsampling_rate: 1
+
+MODEL:
+  backbone: "resnet50"
+  epf_extractor: "direct_pooling"
+  fix_bn: True
+  ep_scale_embedding: True
+  ep_scale_number: 20
+  use_bias: True
+  refiner: "self_similarity_module"
+  matcher: "dynamic_similarity_matcher"
+  counter: "density_x16"
+  backbone_layer: "layer3"
+  hidden_dim: 256
+  refiner_layers: 1
+  matcher_layers: 1
+  refiner_proj_dim: 32
+  matcher_proj_dim: 256
+  dynamic_proj_dim: 128
+  counter_dim: 257
+  repeat_times: 1
+  pretrain: True
+
+TRAIN:
+  resume: "model_ckpt.pth"
+  counting_loss: "l2loss"
+  contrast_loss: "info_nce"
+  contrast_weight: 5e-6
+  optimizer: "AdamW"
+  device: "cuda:0"
+  batch_size: 8
+  epochs: 300
+  lr_backbone: 1e-5
+  lr: 1e-5
+  lr_drop: 300 # We do not modify learning rate.
+  momentum: 0.95
+  weight_decay: 5e-4
+  clip_max_norm: 0.1
+  num_workers: 1
+  seed: 903
+
+VAL:
+  evaluate_only: True
+  resume: "model_best.pth"
+  visualization: False
+

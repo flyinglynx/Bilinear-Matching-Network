@@ -1,4 +1,4 @@
-# Bilinear Similarity Network
+# Bilinear Matching Network
 
 This repository is the official implementation of our CVPR 2022 Paper "Represent, Compare, and Learn: A Similarity-Aware Framework for Class-Agnostic Counting". [Link](https://arxiv.org/abs/2203.08354)
 

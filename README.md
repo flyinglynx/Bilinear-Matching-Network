@@ -17,7 +17,7 @@ School of Artificial Intelligence and Automation, Huazhong University of Science
 Our code has been tested on Python 3.8.5 and PyTorch 1.8.1+cu111. Please follow the official instructions to setup your environment. See other required packages in `requirements.txt`.
 
 ## Data Preparation
-We train and evaluate our methods on FSC-147 dataset. Please follow the [FSC-147 official repository]() to download and unzip the dataset.  Then, please place the data lists  ``data_list/train.txt``, ``data_list/val.txt`` and ``data_list/test.txt`` in the dataset directory. Final the path structure used in our code will be like :
+We train and evaluate our methods on FSC-147 dataset. Please follow the [FSC-147 official repository](https://github.com/cvlab-stonybrook/LearningToCountEverything) to download and unzip the dataset. Then, please place the data lists  ``data_list/train.txt``, ``data_list/val.txt`` and ``data_list/test.txt`` in the dataset directory. Note that, you should also download data annotation file ``annotation_FSC147_384.json`` and ``ImageClasses_FSC147.txt`` file from [Link](https://github.com/cvlab-stonybrook/LearningToCountEverything/tree/master/data) and place them in the dataset folder. Final the path structure used in our code will be like :
 ````
 $PATH_TO_DATASET/
 ├──── gt_density_map_adaptive_384_VarV2
@@ -64,7 +64,7 @@ If you find this work or code useful for your research, please cite:
 @inproceedings{min2022bmnet,
   title={Represent, Compare, and Learn: A Similarity-Aware Framework for Class-Agnostic Counting},
   author={Shi, Min and Hao, Lu and Feng, Chen and Liu, Chengxin and Cao, Zhiguo},
-  booktitle={Proc. IEEE/CVF Conference on Computer Vision and Pattern Recognization (CVPR)},
+  booktitle={Proc. IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
   year={2022}
 }
 

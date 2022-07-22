@@ -16,7 +16,7 @@ def get_image_classes(class_file):
         classes = [line.split('\t') for line in f.readlines()]
     
     for entry in classes:
-        class_dict[entry[0]] = entry[1]
+        class_dict[entry[0]] = entry[0]
     
     return class_dict 
 
